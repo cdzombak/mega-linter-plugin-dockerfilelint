@@ -1,0 +1,20 @@
+descriptor_id: DOCKERFILELINT
+descriptor_type: tooling_format
+file_names_regex:
+  - "Dockerfile"
+linters:
+  - linter_name: dockerfilelint
+    linter_url: https://github.com/replicatedhq/dockerfilelint
+    linter_repo: https://github.com/replicatedhq/dockerfilelint
+    config_file_name: ".dockerfilelintrc"
+    cli_help_arg_name: "--help"
+    cli_version_arg_name: "--version"
+    cli_lint_mode: list_of_files
+    can_output_sarif: false
+    cli_lint_errors_count: regex_number
+    cli_lint_errors_regex: "Issues: ([0-9]+)"
+    examples:
+      - "dockerfilelint ./Dockerfile"
+    install:
+      dockerfile:
+        - RUN npm install -g dockerfilelint
